@@ -8,7 +8,7 @@ function Navbar() {
           <Link href="/">Home</Link>
         </li>
         <li className="text-white transition-opacity hover:opacity-70">
-          <Link href="/placeholder-page">Placeholder Page</Link>
+          <Link href="/placeholderPage">Placeholder Page</Link>
         </li>
       </ul>
     </nav>

@@ -1,35 +1,36 @@
-import Head from 'next/head';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Main from '../components/Main';
-import { useState } from 'react';
+import CookieStandAdmin from '../components/CookieStandAdmin';
+import { useState, useEffect } from 'react';
+import { hours } from '../data';
 
 export default function Home() {
-  const [cookieStand, setCookieStand] = useState(null);
+  const [cookieStands, setCookieStands] = useState([]);
+
+  useEffect(() => {
+    const storedCookieStands = JSON.parse(localStorage.getItem('cookieStands')) || [];
+    setCookieStands(storedCookieStands);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cookieStands', JSON.stringify(cookieStands));
+  }, [cookieStands]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const newCookieStand = {
+      id: formData.get('id'),
       location: formData.get('location'),
       minCustomers: formData.get('minCustomers'),
       maxCustomers: formData.get('maxCustomers'),
       avgCookies: formData.get('avgCookies'),
+      hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36],
     };
-    setCookieStand(newCookieStand);
+    setCookieStands([...cookieStands, newCookieStand]);
   };
 
   return (
-    <div className="bg-white min-h-screen">
-      <Head>
-        <title>Cookie Stand Admin</title>
-      </Head>
-
-      <Header />
-
-      <Main onSubmit={handleSubmit} cookieStand={cookieStand} />
-
-      <Footer />
-    </div>
+    <>
+      <CookieStandAdmin onSubmit={handleSubmit} cookieStands={cookieStands} setCookieStands={setCookieStands} hours={hours} />
+    </>
   );
 }
