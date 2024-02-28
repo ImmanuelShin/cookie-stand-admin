@@ -6,6 +6,18 @@
 
 A small web application showcasing Next.js with Tailwind CSS.
 
+### Changelog
+
+#### 2/27/24
+- Added initial app structure.
+- Implemented home page.
+- Added form functionality.
+
+#### 2/28/24
+- Added table component.
+- Implemented delete buttons.
+- Displayed hourly sales information.
+
 ### Setup
 
 #### Requirements
