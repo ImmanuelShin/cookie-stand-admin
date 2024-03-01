@@ -48,6 +48,6 @@ A small web application showcasing Next.js with Tailwind CSS.
   ```bash
   npm run dev
   ``` 
-  5. Go to adjacent cookie-stand-api repo and follow instructions in order to start the api server.
-  
+  5. Go to adjacent [cookie-stand-api](https://github.com/ImmanuelShin/cookie-stand-api) repo and follow instructions in order to start the api server.
+
   6. The application will be accessible at http://localhost:3000/.
