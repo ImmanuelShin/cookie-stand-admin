@@ -18,6 +18,10 @@ A small web application showcasing Next.js with Tailwind CSS.
 - Implemented delete buttons.
 - Displayed hourly sales information.
 
+#### 2/29/24
+- Added CRUD to API
+- Added Auth
+
 ### Setup
 
 #### Requirements
@@ -44,4 +48,6 @@ A small web application showcasing Next.js with Tailwind CSS.
   ```bash
   npm run dev
   ``` 
-  5. The application will be accessible at http://localhost:3000/.
+  5. Go to adjacent cookie-stand-api repo and follow instructions in order to start the api server.
+  
+  6. The application will be accessible at http://localhost:3000/.

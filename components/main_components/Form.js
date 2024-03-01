@@ -1,9 +1,25 @@
+import { useAuth } from '@/contexts/auth';
+import useResource from '@/hooks/useResource';
+
 function Form({ onSubmit }) {
+  const { user } = useAuth();
+  const { createResource } = useResource();
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newCookieStand = {
+      location: event.target.location.value,
+      minCustomers: parseInt(event.target.minCustomers.value),
+      maxCustomers: parseInt(event.target.maxCustomers.value),
+      avgCookies: parseInt(event.target.avgCookies.value),
+      owner: user.id,
+    };
+    createResource(newCookieStand);
+  }
   return (
     <div className="bg-white p-8 border border-gray-300 rounded-md shadow-md w-full max-w-md">
       <h2 className="text-xl mb-4">Create Cookie Stand</h2>
 
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <label className="block mb-2" htmlFor="location">
           Location:
           <input

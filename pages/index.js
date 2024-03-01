@@ -1,18 +1,13 @@
+import Head from 'next/head';
 import CookieStandAdmin from '../components/CookieStandAdmin';
+import LoginForm from '../components/LoginForm';
 import { useState, useEffect } from 'react';
+import { useAuth } from '../contexts/auth';
 import { hours } from '../data';
 
 export default function Home() {
+  const { user, login } = useAuth(); 
   const [cookieStands, setCookieStands] = useState([]);
-
-  useEffect(() => {
-    const storedCookieStands = JSON.parse(localStorage.getItem('cookieStands')) || [];
-    setCookieStands(storedCookieStands);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('cookieStands', JSON.stringify(cookieStands));
-  }, [cookieStands]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,8 +24,18 @@ export default function Home() {
   };
 
   return (
-    <>
-      <CookieStandAdmin onSubmit={handleSubmit} cookieStands={cookieStands} setCookieStands={setCookieStands} hours={hours} />
-    </>
+    <div className="p-4">
+      <Head>
+        <title>Cookie Stand Admin</title>
+      </Head>
+      {user ? (
+        <>
+          <h1>Logged in: {user.email}</h1>
+          <CookieStandAdmin onSubmit={handleSubmit} cookieStands={cookieStands} setCookieStands={setCookieStands} hours={hours} />
+        </>
+      ) : (
+        <LoginForm onLogin={login} />
+      )}
+    </div>
   );
 }

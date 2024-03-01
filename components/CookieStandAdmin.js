@@ -3,8 +3,10 @@ import Head from 'next/head';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import useResource from '../hooks/useResource';
 
 function CookieStandAdmin({ onSubmit, cookieStands, setCookieStands, hours }) {
+  const { resources, deleteResource } = useResource();
   return (
     <div className="bg-white min-h-screen">
       <Head>
@@ -13,9 +15,16 @@ function CookieStandAdmin({ onSubmit, cookieStands, setCookieStands, hours }) {
 
       <Header />
 
-      <Main onSubmit={onSubmit} cookieStands={cookieStands} setCookieStands={setCookieStands} hours={hours} />
+      <Main 
+      onSubmit={onSubmit} 
+      cookieStands={cookieStands} 
+      setCookieStands={setCookieStands} 
+      hours={hours} 
+      stands={resources || []} 
+      deleteStand={deleteResource} 
+      />
 
-      <Footer cookieStands={cookieStands}/>
+      <Footer cookieStands={resources}/>
     </div>
   );
 }
