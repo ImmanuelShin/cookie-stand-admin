@@ -8,7 +8,7 @@ import useResource from '../hooks/useResource';
 function CookieStandAdmin({ onSubmit, cookieStands, setCookieStands, hours }) {
   const { resources, deleteResource } = useResource();
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen w-full">
       <Head>
         <title>Cookie Stand Admin</title>
       </Head>

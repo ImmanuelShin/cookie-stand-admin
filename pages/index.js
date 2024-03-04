@@ -24,13 +24,12 @@ export default function Home() {
   };
 
   return (
-    <div className="p-4">
+    <div className="bg-white min-h-screen w-full">
       <Head>
         <title>Cookie Stand Admin</title>
       </Head>
       {user ? (
         <>
-          <h1>Logged in: {user.email}</h1>
           <CookieStandAdmin onSubmit={handleSubmit} cookieStands={cookieStands} setCookieStands={setCookieStands} hours={hours} />
         </>
       ) : (
