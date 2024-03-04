@@ -1,4 +1,4 @@
-# Lab - Class 37
+# Lab - Class 37 - 41
 
 ## Project: Leveling up Front End with React, Next.js & TailwindCSS
 
@@ -21,6 +21,10 @@ A small web application showcasing Next.js with Tailwind CSS.
 #### 2/29/24
 - Added CRUD to API
 - Added Auth
+
+#### 3/4/2024
+- Deployed to Vercel
+- Updated Buttons
 
 ### Setup
 
@@ -51,3 +55,11 @@ A small web application showcasing Next.js with Tailwind CSS.
   5. Go to adjacent [cookie-stand-api](https://github.com/ImmanuelShin/cookie-stand-api) repo and follow instructions in order to start the api server.
 
   6. The application will be accessible at http://localhost:3000/.
+
+### Deployment
+
+The project is deployed on Vercel and can be accessed at:
+
+[Cookie Stand Admin - Vercel Deployment](https://cookie-stand-admin-is.vercel.app/)
+
+Please note that the live deployment may differ from the local development environment. Make sure to follow the provided setup instructions to run the application locally.
